@@ -50,9 +50,12 @@
         // defining the marker style 
         const simpleMarkerSymbol = {  
           type: "simple-marker",  
-          color: "red", 
+          color: [ 255, 40, 0 ], 
           style: "cross",
           size: "20px", 
+          outline: { 
+            color: [ 255, 255, 0 ],
+            width: 3  // points
         };
 
         const popupTemplate = {
