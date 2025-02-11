@@ -157,11 +157,27 @@
 
         graphicsLayer.add(polylineGraphic);
 
-        const berlinschulen = new FeatureLayer({
-          url: "https://services2.arcgis.com/jUpNdisbWqRpMo35/arcgis/rest/services/Standorte_%C3%96ffentlicher_Schulen/FeatureServer" //get URL from AGOL Item Page
-        });
+        // Define a pop-up for berlin
+         const popupberlinSchulen = {
+          "title": "Schools",
+            "content": `
+              <b>Name:</b> {name}<br>
+             <b>School Type:</b> {schultyp}<br>
+             <b>District:</b> {bezirk }<br>
+              <b>Address:</b> {strasse} {hausnummer}<br>
+             <b>Website:<a href="{internet}" target="_blank">{internet}</a><br>
+            `
+          }
+        //adding the Const for the feature layer
+        const berlinSchulen = new FeatureLayer({
+          url: "https://services2.arcgis.com/jUpNdisbWqRpMo35/arcgis/rest/services/Standorte_%C3%96ffentlicher_Schulen/FeatureServer", //get URL from AGOL Item Page
+        
+          //adding the popup here
+          outFields: ["name","schultyp"],
+          popupTemplate: popupberlinSchulen
+       });
 
-        map.add(berlinschulen);
+        map.add(berlinSchulen);
 
     });
   </script>
