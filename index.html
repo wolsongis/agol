@@ -31,7 +31,7 @@
 
       const view = new MapView({
           map: map,
-          center: [52.521437, 13.401263], // Longitude, latitude
+          center: [13.401263, 52.521437], // Longitude, latitude
           zoom: 13, // Zoom level
           container: "viewDiv" // Div element
         });
@@ -50,12 +50,9 @@
         // defining the marker style 
         const simpleMarkerSymbol = {  
           type: "simple-marker",  
-          color: [0, 0, 139],  // Color of blues rock
+          color: "red", 
           style: "cross",
-          outline: {  
-            color: [255, 255, 255], // White  
-            width: 1
-         }  
+          size: "20px", 
         };
 
         // creating the point 
