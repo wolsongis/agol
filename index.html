@@ -57,8 +57,14 @@
          }  
         };
 
+        // creating the point 
+        const pointGraphic = new Graphic({  
+          geometry: point,  
+          symbol: simpleMarkerSymbol  
+        });
+
         // adding the point to the graphicsLayer
-        graphicsLayer.add(pointGraphic);
+          graphicsLayer.add(pointGraphic);
 
     });
   </script>
