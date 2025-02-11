@@ -99,6 +99,21 @@
           rings: ring  
         };
    
+      // defining the style
+      const polygonSymbol = {  
+        type: "simple-fill",  
+        color: [ 0, 0, 255, 0.3 ],  
+        outline: {  
+          color: [ 255, 40, 0 ],  
+          width: 2  
+        }  
+      };
+
+      // creating the polygon graphic 
+      const polygonGraphic = new Graphic({  
+        geometry: polygon,  
+        symbol: polygonSymbol  
+      });
 
     });
   </script>
