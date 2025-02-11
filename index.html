@@ -18,8 +18,10 @@
       "esri/Map",  
       "esri/views/MapView",   
       "esri/Graphic",  
-      "esri/layers/GraphicsLayer"
-    ], function(esriConfig,Map, MapView, Graphic, GraphicsLayer) {
+      "esri/layers/GraphicsLayer",
+      "esri/geometry/Polyline",
+      "esri/layers/FeatureLayer"
+    ], function(esriConfig,Map, MapView, Graphic, GraphicsLayer, Polyline, FeatureLayer) {
 
       // adding the esri/Graphic, esri/layers/GraphicsLayer modules allow the webmap 
       // the ability to work with graphics 
@@ -137,7 +139,7 @@
 
         const polylineSymbol = {  
           type: "simple-line",  
-          color: [ 255, 255, 0 ],  
+          color: [ 0, 0, 255 ],  
           width: 3  
         };
 
@@ -154,6 +156,12 @@
         });
 
         graphicsLayer.add(polylineGraphic);
+
+        const berlinschulen = new FeatureLayer({
+          url: "https://services2.arcgis.com/jUpNdisbWqRpMo35/arcgis/rest/services/Standorte_%C3%96ffentlicher_Schulen/FeatureServer" //get URL from AGOL Item Page
+        });
+
+        map.add(usaeduLayer);
 
     });
   </script>
