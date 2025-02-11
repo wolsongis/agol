@@ -179,6 +179,44 @@
 
         map.add(berlinSchulen);
 
+        // Define a pop-up for airports in the USA     
+      const popupairportsUSA = {
+          "title": "Airports USA",
+            "content": `
+              <b>Name:</b> {Fac_Name}<br>
+             <b>City:</b> {City}<br>
+             <b>State:</b> {State_Name}<br>
+              <b>Facility Type:</b> {Fac_Type}<br>
+            `
+      }
+      //adding the Const for the feature layer
+      const airportsUSA = new FeatureLayer({
+        url: "https://services.arcgis.com/LBbVDC0hKPAnLRpO/arcgis/rest/services/US_Airports_WO/FeatureServer", //get URL from AGOL Item Page
+        //adding the popup here
+        outFields: ["Fac_Name","City","State_Name","Fac_Type"],
+        popupTemplate: popupairportsUSA
+      }); 
+
+      map.add(airportsUSA);
+
+      // setting up an icon 
+      const airportRenderer = {
+        "type": "simple",
+        "symbol": {
+          "type": "picture-marker",
+          "url": "https://raw.githubusercontent.com/wolsongis/agol/3a57e273ead247a1391514eadd9a655b6d688174/local_airport_24dp_E8EAED.png",
+          "width": "18px",
+          "height": "18px"
+        }
+      }
+
+      const airportLayer = new FeatureLayer({
+          url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/US_Airports/FeatureServer",
+          renderer: airportRenderer //calling the icon 
+        });
+
+      map.add(airportLayer);
+
     });
   </script>
 
