@@ -80,7 +80,7 @@
         });
 
         // adding the point to the graphicsLayer
-          graphicsLayer.add(pointGraphic);
+        graphicsLayer.add(pointGraphic);
 
         // defining the geometry of the ring 
         const ring = [  
@@ -100,27 +100,29 @@
         };
    
       // defining the style
-      const polygonSymbol = {  
-        type: "simple-fill",  
-        color: [ 0, 0, 255, 0.3 ],  
-        outline: {  
-          color: [ 255, 40, 0 ],  
-          width: 2  
-        }  
-      };
+        const polygonSymbol = {  
+          type: "simple-fill",  
+          color: [ 0, 0, 255, 0.3 ],  
+          outline: {  
+            color: [ 255, 40, 0 ],  
+           width: 2  
+         }  
+       };
 
-      const polygonAttributes = {
-        Name: "Museum Insel",
-        Description: "Island in the middle of Berlin with many museums."
-      }
+        const polygonAttributes = {
+          Name: "Museum Insel",
+          Description: "Island in the middle of Berlin with many museums."
+       }
 
       // creating the polygon graphic 
-      const polygonGraphic = new Graphic({  
-        geometry: polygon,  
-        symbol: polygonSymbol  
-        attributes: polygonAttributes,
-        popupTemplate: popupTemplate
-      });
+        const polygonGraphic = new Graphic({  
+         geometry: polygon,  
+          symbol: polygonSymbol  
+         attributes: polygonAttributes,
+         popupTemplate: popupTemplate
+       });
+
+        graphicsLayer.add(polygonGraphic);
 
     });
   </script>
