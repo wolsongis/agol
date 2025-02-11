@@ -18,7 +18,7 @@
       "esri/Map",  
       "esri/views/MapView",   
       "esri/Graphic",  
-      "esri/layers/GraphicsLayer"   
+      "esri/layers/GraphicsLayer"
     ], function(esriConfig,Map, MapView, Graphic, GraphicsLayer) {
 
       // adding the esri/Graphic, esri/layers/GraphicsLayer modules allow the webmap 
@@ -116,14 +116,44 @@
 
       // creating the polygon graphic 
         const polygonGraphic = new Graphic({  
-         geometry: polygon,  
+          geometry: polygon,  
           symbol: polygonSymbol,
-         attributes: polygonAttributes,
-         popupTemplate: popupTemplate
+          attributes: polygonAttributes,
+          popupTemplate: popupTemplate
        });
 
        // adding the polygon to the graphicsLayer 
         graphicsLayer.add(polygonGraphic);
+
+        const path = [  
+          [13.380275, 52.519235],  
+          [13.388993, 52.522186],  
+          [13.393680, 52.522081]
+        ];
+
+        const line = new Polyline({  
+          paths: path  
+        });
+
+        const polylineSymbol = {  
+          type: "simple-line",  
+          color: [ 255, 255, 0 ],  
+          width: 3  
+        };
+
+        const polylineAttributes = {
+          Name: "Spree River",
+          Description: "Route along the river"
+        }
+
+        const polylineGraphic = new Graphic({  
+          geometry: line,  
+          symbol: polylineSymbol,
+          attributes: polylineAttributes,
+          popupTemplate: popupTemplate  
+        });
+
+        graphicsLayer.add(polylineGraphic);
 
     });
   </script>
