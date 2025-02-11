@@ -55,10 +55,24 @@
           size: "20px", 
         };
 
+        const popupTemplate = {
+          title: "{Name}",
+          content: "{Description}"
+        }
+        const attributes = {
+          Name: "Berlin Cathedral (Berliner Dom)",
+          Description: "A mighty cathedral and one of the city's most important landmarks."
+        }
+
         // creating the point 
         const pointGraphic = new Graphic({  
           geometry: point,  
-          symbol: simpleMarkerSymbol  
+          symbol: simpleMarkerSymbol,
+          
+          // adding popup attributes 
+          attributes: attributes,
+          popupTemplate: popupTemplate
+
         });
 
         // adding the point to the graphicsLayer
