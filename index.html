@@ -197,8 +197,6 @@
         popupTemplate: popupairportsUSA
       }); 
 
-      map.add(airportsUSA);
-      
       //const to make the airport labels
       const airportLabels = {
        symbol: {
@@ -241,6 +239,30 @@
       });
 
       map.add(airportLayer);
+
+      // setting up helipad icon
+      const helipadRenderer = {
+        "type": "simple",
+        "symbol": {
+          "type": "picture-marker",
+          "url": "https://raw.githubusercontent.com/wolsongis/agol/refs/heads/main/helicopter-icon-11.png",
+          "width": "18px",
+          "height": "18px"
+        }
+      }
+
+      const helipadLayer = new FeatureLayer({
+        url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/US_Airports/FeatureServer",
+        renderer: helipadRenderer, //calling the icon
+
+        definitionExpression: "Fac_Type = 'HELIPORT'", //adding sql to filter for airports
+
+        labelingInfo: [airportLabels] //adding the labels
+
+      });
+
+      map.add(helipadLayer);
+
 
     });
   </script>
